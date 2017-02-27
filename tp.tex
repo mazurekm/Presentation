@@ -59,6 +59,7 @@
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{listings}
 \usepackage{url}
+\usepackage{mathtools}
 
 %---------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -106,7 +107,9 @@ A situation where there is a necessity to choose one of at least two possible va
 
 \begin{frame}
 \frametitle{What is Decision Support?}
-
+\begin{center}
+\includegraphics[scale=0.34]{problems.png}
+\end{center}
 \end{frame}
 
 
@@ -156,57 +159,54 @@ The ideal method, which solves the problem, should:
 \end{frame}
 
 
-\subsection{Formal problem definition}
+\subsection{The model}
 \begin{frame}
-\frametitle{Formal problem definition}
+\frametitle{The model}
+    Let us denote a set of players by $N={1,\dots,n}$ and our devisible good - the cake - by the interval $[0,1]$. Moreover we assume that each player is endowed with a valuation function $V_{i}$ (information preference), which maps a given subinterval $I\subseteq[0,1]$ to it by player $i$, $V_{i}(I)$. 
+
+    We are certainly interested in allocations $A=(A_1,\dots,A_n)$, where each $A_i$ is the piece of cake allocated to agent $i$. Now we can express our criteria in a more formal way:
+\begin{itemize}
+    \item Proportionality: for all $i\epsilon{N}$, $V_{i}(A_i)\geq\frac{1}{n}$,
+    \item Envy-freeness: for all $i,j\epsilon{N}$, $V_{i}(A_i)\geq{V_i}(A_j)$,
+    \item Equitability: for all $i,j\epsilon{N}$, $V_{i}(A_i)={V_j}(A_j)$
+\end{itemize}
 \end{frame}
 
 
 \subsection{Proportionality for n = 2: Cut and Choose}
 \begin{frame}
 \frametitle{Proportionality for n = 2: Cut and Choose}
-\begin{table}
-\begin{tabular}{c|c|c|c|}
-Number of players & Proportionality & Envy-freeness & Complexity \\
-\hline 
-2 & yes & yes & 2 \\
-\end{tabular}
-\end{table}
+\begin{enumerate}
+    \item Player 1 cuts the cake into two equally-valued pieces $X_1$ and $X_2$, such that $V_1(X_1)=V_1(X_2)=\frac{1}{2}$
+    \item Player 2 chooses its preferred piece and player 1 receives the remaining piece.
+\end{enumerate}
 \end{frame}
 
-\subsection{Proportionality for n = 2: Banach-Knaster}
+\subsection{Proportionality for any n: Banach-Knaster}
 \begin{frame}
-\frametitle{Proportionality for n = 2: Banach-Knaster}
-\begin{table}
-\begin{tabular}{c|c|c|c|}
-Number of players & Proportionality & Envy-freeness & Complexity \\
-\hline 
-2 & yes & yes & 2 \\
-\end{tabular}
-\end{table}
+\frametitle{Proportionality for any n: Banach-Knaster}
 
 \end{frame}
 
-\subsection{Proportionality for any n: Dubins-Spanier and Even-Paz}
+\subsection{Proportionality for any n: Dubins-Spanier}
 \begin{frame}
-\frametitle{Proportionality for any n: Dubins-Spanier and Even-Paz}
-\begin{table}
-\begin{tabular}{c|c|c|c|}
-Number of players & Proportionality & Envy-freeness & Complexity \\
-\hline 
-2 & yes & yes & 2 \\
-\end{tabular}
-\end{table}
+\frametitle{Proportionality for any n: Dubins-Spanier}
+\begin{enumerate}
+    \item In the first step each player $i\epsilon{N}$ makes a mark at the point $x_i$ such that $V_{i}([0,x_i])=\frac{1}{n}$. The player $j$ that made leftmost mark exits with the piece $A_j=[0, x_j]$.
+    \item If there is only one player left, it receives uclaimed piece of cake else go to step 1.
+\end{enumerate}
+\end{frame}
 
-\begin{table}
-\begin{tabular}{c|c|c|c|}
-Number of players & Proportionality & Envy-freeness & Complexity \\
-\hline 
-2 & yes & yes & 2 \\
-\end{tabular}
-\end{table}
+\subsection{Proportionality for any n: Even-Paz}
+\begin{frame}
+\frametitle{Proportionality for any n: Even-Paz}
+\begin{enumerate}
+    \item In the first step each player $i\epsilon{N}$ makes a mark at the point $x_i$ such that $V_{i}([0,x_i])=\frac{1}{n}$. The player $j$ that made leftmost mark exits with the piece $A_j=[0, x_j]$.
+    \item If there is only one player left, it receives uclaimed piece of cake else go to step 1.
+\end{enumerate}
 
 \end{frame}
+
 
 \subsection{Envy-freeness for n = 3: Selfridge-Conway}
 \begin{frame}
@@ -221,9 +221,9 @@ Number of players & Proportionality & Envy-freeness & Complexity \\
 
 \end{frame}
 
-\subsection{Where are we now?}
+\subsection{How about an envy-free algorithm for any number of players?}
 \begin{frame}
-\frametitle{Where are we now?}
+\frametitle{How about an env-free algorithm for any number of players?}
 \end{frame}
 
 %------------------------------------------------
