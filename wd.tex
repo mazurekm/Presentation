@@ -60,6 +60,7 @@
 \usepackage{listings}
 \usepackage{url}
 \usepackage{mathtools}
+\usepackage[polish]{babel}
 
 %---------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -174,7 +175,10 @@ The ideal method, which solves the problem, should:
 \subsection{Historical background}
 \begin{frame}
 \frametitle{Historical background}
-The problem was introduced by Hugo Steinhaus   
+The problem was introduced by Hugo Steinhaus - a Polish mathematician and educator who was one of the creators of Lwow School of Mathematics. Cake cutting was strongly studied after The Second World War (1940s). 
+\begin{center}
+\includegraphics[scale=0.2]{Hugo-Steinhaus.jpg}
+\end{center}
 \end{frame}
 
 
@@ -205,9 +209,9 @@ The problem was introduced by Hugo Steinhaus
 \begin{frame}
 \frametitle{Proportionality for any n: Banach-Knaster}
 \begin{enumerate}
-\item Agent 1 cuts a piece $X$ such that $V_1(X)=\frac{1}{n}$
-\item This piece is then passed 'in circle' by next players. Each player $i$ has two options: pass it to a next agent because it is not valuable for him ($V_i(X)=\frac{1}{n}$) or cut as much to get $X^{'}$ such that $V_i(X^{'})=\frac{1}{n}$and then pass it.
-\item When the piece makes a full cycle, the last player that cut something is obligated to take it. 
+\item Agent 1 cuts off a piece $X$ such that $V_1(X)=\frac{1}{n}$
+\item This piece is then passed around players. Each player $i$ has two options: lets it pass because it is not valuable for him ($V_i(X)<\frac{1}{n}$) or trims it down futher to get $X^{'}$ such that $V_i(X^{'})=\frac{1}{n}$ and then pass it.
+\item When the piece makes a full round, the last player that cut  something off is obliged to take it. 
 \item The rest of cake (with cut pieces) is divided in the same way between $n-1$ players.
 \end{enumerate}
 \end{frame}
@@ -250,6 +254,11 @@ The problem was introduced by Hugo Steinhaus
 \subsection{How about an envy-free algorithm for any number of players?}
 \begin{frame}
 \frametitle{How about an env-free algorithm for any number of players?}
+\begin{itemize}
+\item In 1995 Steven Brams and Alan Taylor created procedure which works for more than 3 players and guarantees to produce an envy-free division. However, this algorithm is unbounded which means that it might need to run very large number of steps (cuts) depending on the players' cake preferences.
+\item Over the past 50 years, many mathematicians and computer scientists, had convinced themselves that there was probably no bounded, envy-free algorithm for dividing cake among $n$ players.
+\item In 2016 two computer scientists described an algorithm which only depends on a number of palyers. Unfortunetely this is very complex - it requires n\^n\^n\^n\^n\^n. Even for just a handful of players, this number is greater than the number of atoms in the universe.
+\end{itemize}
 \end{frame}
 
 %------------------------------------------------
@@ -267,6 +276,11 @@ The problem was introduced by Hugo Steinhaus
 \bibitem[Erica Klarreich, 2016]{p3} Erica Klarreich (2016)
 \newblock How to Cut Cake Fairly and Finally Eat It Too
 \newblock \url{https://www.quantamagazine.org/20161006-new-algorithm-solves-cake-cutting-problem/}
+\bibitem[Roman Slowiński]{p4} Roman Słowiński
+\newblock Preference Modelling and Decision Support
+\bibitem[Ulle Endriss]{p5} Ulle Endriss 
+\newblock Computational Social Choice: Autumn 2013
+\newblock \url{https://staff.science.uva.nl/u.endriss/teaching/comsoc/2013/slides/comsoc-cakes.pdf}
 
 \end{thebibliography}
 }
